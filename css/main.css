@@ -25,7 +25,7 @@ h1 {
 }
 p {
     font-size: 1.5em;
-    line-height: 1.4em;
+    line-height: 1em;
     color: #333;
 }
 footer {
@@ -46,3 +46,9 @@ IMG.displayed {
     display: block;
     margin-left: auto;
     margin-right: auto }
+	
+p.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 120em
+}
