@@ -22,8 +22,10 @@
 
 <script>
   var map = L.map('map').setView([ 30.70, -81.47], 12);
-  L.esri.tiledMapLayer("http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer", {}).addTo(map);
+  L.esri.tiledMapLayer("http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM10_v1/MapServer", {}).addTo(map);
+  <!-- old path: http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer -->
 </script>
 
 </body>
 </html>
+
