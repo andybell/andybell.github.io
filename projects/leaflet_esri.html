@@ -5,8 +5,8 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <!-- Load Leaflet from CDN-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
-  <script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
   <!-- Load Esri Leaflet from CDN -->
   <script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.5/esri-leaflet.js"></script>
@@ -22,12 +22,7 @@
 
 <script>
   var map = L.map('map').setView([ 38.57, -121.40], 12);
-<<<<<<< HEAD
   L.esri.tiledMapLayer("http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM10_v1/MapServer", {}).addTo(map);
-=======
-  L.esri.tiledMapLayer("http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM10_v1/MapServer?f=jsapi", {}).addTo(map);
-  <!-- old path: http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer -->
->>>>>>> origin/master
 </script>
 
 </body>
