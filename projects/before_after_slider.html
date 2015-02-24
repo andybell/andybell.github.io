@@ -9,45 +9,42 @@
 <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
 <script type="text/javascript" src="js/jquery.beforeafter-map-0.11.js"></script>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script> 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.beforeafter-map-0.11.js"></script>
-
-
-
-
 <!-- Setup Leaflet -->
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script type="text/javascript" src="js/leaflet.js"></script>
+<link rel="stylesheet" type="text/css" href="css/leaflet.css" />
 <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/leaflet.ie.css" /><![endif]-->
+
+<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.5/esri-leaflet.js"></script>
+
+
+
 </head>
 
 <body>
 <!-- Create a map container div and divs for your two maps -->
 <div id="map-container">
-<!-- Make sure to give the map divs height and width -->
-<div id="before" style="height:400px;width:500px;"></div>
-<div id="after" style="height:400px;width:500px;"></div>
+	<!-- Make sure to give the map divs height and width -->
+	<div id="before" style="height:500px;width:600px;"></div>
+	<div id="after" style="height:500px;width:600px;"></div>
 </div>
 
 <script type="text/javascript">
-$(function() {
-// create a map in the "before" and "after" divs, set the view to a given place and zoom
-// You may want to turn attributionControl off so that the Leaflet attribution doesn't slide with the slider. Place all attribution on the after map.
-// You may also want to turn off inertia, which in some cases can cause the maps to go out of sync
-var center = [38.895,-77.020], zoom = 12,
-before = L.map('before', {attributionControl: false, inertia: false, minZoom = 12}).setView(center, zoom),
-after = L.map('after', {inertia: false, minZoom = 12}).setView(center, zoom);
+	$(function() {
+		// create a map in the "before" and "after" divs, set the view to a given place and zoom
+		// You may want to turn attributionControl off so that the Leaflet attribution doesn't slide with the slider. Place all attribution on the after map.
+		// You may also want to turn off inertia, which in some cases can cause the maps to go out of sync
+		var center = [30.70,-81.47], zoom = 12,
+		before = L.map('before', {attributionControl: false, inertia: false, minZoom: 12}).setView(center, zoom),
+		after = L.map('after', {inertia: false, minZoom: 12}).setView(center, zoom);
 
-// add your Mapbox tile layer
-L.tileLayer('http://{s}.tiles.mapbox.com/v3/urbaninstitute.Example_Pink/{z}/{x}/{y}.png').addTo(before);
-L.tileLayer('http://{s}.tiles.mapbox.com/v3/urbaninstitute.Example_Green/{z}/{x}/{y}.png').addTo(after);
-
-// Call the Before-After plugin, passing through the variables that you used to setup the maps, and (optional) any options you'd like
-$('#map-container').beforeAfter(before,after);
-});
+		// add your Mapbox tile layer
+		L.esri.tiledMapLayer("http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer", {}).addTo(before); // replace '.Example_Pink' with your map ID from mapbox
+		L.esri.basemapLayer("Topographic").addTo(after); // replace '.Example_Green' with your map ID from mapbox
+		
+		// Call the Before-After plugin, passing through the variables that you used to setup the maps, and (optional) any options you'd like
+		$('#map-container').beforeAfter(before,after);
+	});
 </script>
 
 </body>
+</html>
