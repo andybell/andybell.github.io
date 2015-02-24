@@ -11,9 +11,9 @@
 
 <!-- Setup Leaflet -->
 <script type="text/javascript" src="js/leaflet.js"></script>
-<link rel="stylesheet" type="text/css" href="css/leaflet.css" />
-<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/leaflet.ie.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
 
+<!-- ESRI-leaflet plugin-->
 <script type="text/javascript" src="node_modules/esri-leaflet/dist/esri-leaflet.js"></script>
 
 </head>
@@ -22,8 +22,8 @@
 <!-- Create a map container div and divs for your two maps -->
 <div id="map-container">
 	<!-- Make sure to give the map divs height and width -->
-	<div id="before" style="height:500px;width:600px;"></div>
-	<div id="after" style="height:500px;width:600px;"></div>
+	<div id="before" style="height:90vh;width:99vw;"></div>
+	<div id="after" style="height:90vh;width:99vw;"></div>
 </div>
 
 <script type="text/javascript">
@@ -31,12 +31,12 @@
 		// create a map in the "before" and "after" divs, set the view to a given place and zoom
 		// You may want to turn attributionControl off so that the Leaflet attribution doesn't slide with the slider. Place all attribution on the after map.
 		// You may also want to turn off inertia, which in some cases can cause the maps to go out of sync
-		var center = [30.70,-81.47], zoom = 12,
-		before = L.map('before', {attributionControl: false, inertia: false, minZoom: 12}).setView(center, zoom),
-		after = L.map('after', {inertia: false, minZoom: 12}).setView(center, zoom);
+		var center = [38.5,-121.6], zoom = 10,
+		before = L.map('before', {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom),
+		after = L.map('after', {inertia: false, minZoom: 8}).setView(center, zoom);
 
 		// add your Mapbox tile layer
-		L.esri.tiledMapLayer("http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer", {}).addTo(before); // replace '.Example_Pink' with your map ID from mapbox
+		new L.esri.Layers.ImageMapLayer("https://map.dfg.ca.gov/arcgis/rest/services/Base_Maps/Topo_Delta_Early_1900s/ImageServer", {opacity:0.5}).addTo(before); // replace '.Example_Pink' with your map ID from mapbox
 		L.esri.basemapLayer("Topographic").addTo(after); // replace '.Example_Green' with your map ID from mapbox
 		
 		// Call the Before-After plugin, passing through the variables that you used to setup the maps, and (optional) any options you'd like
