@@ -1,0 +1,52 @@
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>Historic Topographic Maps</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <!-- Load Leaflet from CDN-->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.5/esri-leaflet.js"></script>
+  
+  <!--proj4js-->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/proj4js/2.0.0/proj4.js"></script>
+  <script src="https://cdn.rawgit.com/kartena/Proj4Leaflet/0.7.0/src/proj4leaflet.js"></script>
+
+  <style>
+    body {margin:0;padding:0;}
+    #map {position: absolute;top:0;bottom:0;right:0;left:0;}
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+
+<script>
+  /*
+    create new Proj4Leaflet CRS:
+    1. Proj4 and WKT definitions can be found at sites like http://epsg.io
+    2. appropriate values to supply to the resolution and origin constructor options can be found in the ArcGIS Server RESTful tile server endpoint (ex: http://mapserv.utah.gov/arcgis/rest/services/BaseMaps/Terrain/MapServer)
+  */
+  var crs = new L.Proj.CRS('EPSG:26910', '+proj=utm +zone=10 +ellps=GRS80 +datum=NAD83 +units=m +no_defs');
+
+  var map = new L.Map('map', {
+    crs: crs
+  }).setView([38.57, -121.40], 16);
+
+  /*
+    The min/maxZoom values provided should match the actual cache thats been published. This information can be retrieved from the service endpoint directly.
+  */
+  L.esri.basemapLayer("Topographic").addTo(map);
+  L.esri.tiledMapLayer('http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM10_v1/MapServer', {
+    maxZoom: 17,
+    minZoom: 10,
+  }).addTo(map);
+</script>
+
+</body>
+</html>
+
