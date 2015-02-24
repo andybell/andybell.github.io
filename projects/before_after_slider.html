@@ -2,95 +2,43 @@
 <html>
 <meta charset="utf-8">
 <title>Leaflet/Mapbox Before-After Plugin</title>
-
 <head>
+<!-- Setup Before-After Plugin dependencies -->
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="js/jquery.beforeafter-map-0.11.js"></script>
 
-<style>
-    .map{
-        width: 600px;
-        height: 400px;
-    }
-</style>
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
- <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
- <link rel="stylesheet" href="css/leaflet.awesome-markers.css">
- <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/leaflet.ie.css" /><![endif]-->
-
-    <!-- Setup Before-After Plugin dependencies -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
-     <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script> 
-     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.beforeafter-map-0.11.js"></script>
-
-    <!-- Setup Leaflet -->
-    <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <script src="js/leaflet.awesome-markers.min.js"></script>
-   
-    
+<!-- Setup Leaflet -->
+<script type="text/javascript" src="js/leaflet.js"></script>
+<link rel="stylesheet" type="text/css" href="css/leaflet.css" />
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/leaflet.ie.css" /><![endif]-->
 </head>
 
 <body>
-    <!-- Create a map container div and divs for your two maps -->
-    <div id="map-container">
-        <!-- Make sure to give the map divs height and width -->
-        <div id="before" class="map"></div>
-        <div id="after" class = "map"></div>
-    </div>
+<!-- Create a map container div and divs for your two maps -->
+<div id="map-container">
+<!-- Make sure to give the map divs height and width -->
+<div id="before" style="height:400px;width:500px;"></div>
+<div id="after" style="height:400px;width:500px;"></div>
+</div>
 
-    <script type="text/javascript">
-    $(function() {
-        // create a map in the "before" and "after" divs, set the view to a given place and zoom
-        // You may want to turn attributionControl off so that the Leaflet attribution doesn't slide with the slider. Place all attribution on the after map.
-        // You may also want to turn off inertia, which in some cases can cause the maps to go out of sync
-        var center = [38.895, -77.020];
-        var zoom = 12;
-        var before = L.map('before', {
-                attributionControl: false,
-                inertia: false,
-                minZoom: 12
-            }).setView(center, zoom);
-            
-        var after = L.map('after', {
-                inertia: false,
-                minZoom: 12
-            }).setView(center, zoom);
+<script type="text/javascript">
+$(function() {
+// create a map in the "before" and "after" divs, set the view to a given place and zoom
+// You may want to turn attributionControl off so that the Leaflet attribution doesn't slide with the slider. Place all attribution on the after map.
+// You may also want to turn off inertia, which in some cases can cause the maps to go out of sync
+var center = [38.895,-77.020], zoom = 12,
+before = L.map('before', {attributionControl: false, inertia: false, minZoom = 12}).setView(center, zoom),
+after = L.map('after', {inertia: false, minZoom = 12}).setView(center, zoom);
 
-        // add your Mapbox tile layer
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/spatial.map-qgihrqg5/{z}/{x}/{y}.png').addTo(before); // 
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/spatial.map-qgihrqg5/{z}/{x}/{y}.png').addTo(after); // 
+// add your Mapbox tile layer
+L.tileLayer('http://{s}.tiles.mapbox.com/v3/urbaninstitute.Example_Pink/{z}/{x}/{y}.png').addTo(before);
+L.tileLayer('http://{s}.tiles.mapbox.com/v3/urbaninstitute.Example_Green/{z}/{x}/{y}.png').addTo(after);
 
-
-        var circle = L.circle([38.895, -77.020], 2000, {
-            color: 'red',
-            fillColor: 'red',
-            fillOpacity: 0.5
-        }).addTo(before);
-
-
-        var circle = L.circle([38.895, -77.020], 2000, {
-            color: 'blue',
-            fillColor: 'blue',
-            fillOpacity: 0.5
-        }).addTo(after);
-
-
- L.marker([38.895, -77.060], {icon: L.AwesomeMarkers.icon({icon: 'glass',  prefix: 'glyphicon',markerColor: 'red'}) }).addTo(before);
- L.marker([38.895, -77.050], {icon: L.AwesomeMarkers.icon({icon: 'glass',  prefix: 'glyphicon',markerColor: 'red'}) }).addTo(before);
- L.marker([38.895, -77.040], {icon: L.AwesomeMarkers.icon({icon: 'glass',  prefix: 'glyphicon',markerColor: 'red'}) }).addTo(before);
-
- L.marker([38.905, -77.010], {icon: L.AwesomeMarkers.icon({icon: 'headphones',  prefix: 'glyphicon',markerColor: 'blue'}) }).addTo(after);
- L.marker([38.915, -77.000], {icon: L.AwesomeMarkers.icon({icon: 'headphones',  prefix: 'glyphicon',markerColor: 'blue'}) }).addTo(after);
- L.marker([38.925, -76.990], {icon: L.AwesomeMarkers.icon({icon: 'headphones',  prefix: 'glyphicon',markerColor: 'blue'}) }).addTo(after);
-
-
-
-        // Call the Before-After plugin, passing through the variables that you used to setup the maps, and (optional) any options you'd like
-        $('#map-container').beforeAfter(before, after);
-    });
-    </script>
+// Call the Before-After plugin, passing through the variables that you used to setup the maps, and (optional) any options you'd like
+$('#map-container').beforeAfter(before,after);
+});
+</script>
 
 </body>
-
-</html>
