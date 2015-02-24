@@ -23,6 +23,8 @@
 <script>
   var map = L.map('map').setView([ 38.57, -121.40], 12);
   L.esri.tiledMapLayer("http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM10_v1/MapServer?f=jsapi", {}).addTo(map);
+  
+  L.esri.basemapLayer("Topographic").addTo(map);
 </script>
 
 </body>
