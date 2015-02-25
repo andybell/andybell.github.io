@@ -16,6 +16,10 @@
 <!-- ESRI-leaflet plugin-->
 <script type="text/javascript" src="node_modules/esri-leaflet/dist/esri-leaflet.js"></script>
 
+<!-- PROJ4 -->
+<script type="text/javascript" src="js/proj4.js"></script>
+<script type="text/javascript" src="js/proj4leaflet"></script>
+
 </head>
 
 <body>
@@ -28,15 +32,55 @@
 
 <script type="text/javascript">
 	$(function() {
+	
+		
+  /*
+    create new Proj4Leaflet CRS:
+    1. Proj4 and WKT definitions can be found at sites like http://epsg.io
+    2. appropriate values to supply to the resolution and origin constructor options can be found in the ArcGIS Server RESTful tile server endpoint (ex: http://mapserv.utah.gov/arcgis/rest/services/BaseMaps/Terrain/MapServer)
+  */
+  var crs = new L.Proj.CRS('EPSG:26912', '+proj=utm +zone=12 +ellps=GRS80 +datum=NAD83 +units=m +no_defs', {
+    origin: [-5120900, 9998100],
+    resolutions: [
+      4891.96999883583,
+      2445.98499994708,
+      1222.99250010583,
+      611.496250052917,
+      305.748124894166,
+      152.8740625,
+      76.4370312632292,
+      38.2185156316146,
+      19.1092578131615,
+      9.55462890525781,
+      4.77731445262891,
+      2.38865722657904,
+      1.19432861315723,
+      0.597164306578613,
+      0.298582153289307
+    ]
+  });
+
+  /*
+    The min/maxZoom values provided should match the actual cache thats been published. This information can be retrieved from the service endpoint directly.
+  */
+	
+	
+	
 		// create a map in the "before" and "after" divs, set the view to a given place and zoom
 		// You may want to turn attributionControl off so that the Leaflet attribution doesn't slide with the slider. Place all attribution on the after map.
 		// You may also want to turn off inertia, which in some cases can cause the maps to go out of sync
-		var center = [38.5,-121.6], zoom = 10,
-		before = L.map('before', {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom),
+		var center = [40.381,-111.859], zoom = 5,
+		before = L.map('before', {attributionControl: false, inertia: false, crs:crs}).setView(center, zoom),
 		after = L.map('after', {inertia: false, minZoom: 8}).setView(center, zoom);
 
 		// add your Mapbox tile layer
-		new L.esri.Layers.ImageMapLayer("https://map.dfg.ca.gov/arcgis/rest/services/Base_Maps/Topo_Delta_Early_1900s/ImageServer", {opacity:0.5}).addTo(before); // replace '.Example_Pink' with your map ID from mapbox
+		L.esri.tiledMapLayer('http://mapserv.utah.gov/arcgis/rest/services/BaseMaps/Terrain/MapServer', {
+			maxZoom: 14,
+			minZoom: 0,
+			continuousWorld: true,
+			attribution: 'State of Utah'
+			}).addTo(before);)
+		// new L.esri.Layers.ImageMapLayer("https://map.dfg.ca.gov/arcgis/rest/services/Base_Maps/Topo_Delta_Early_1900s/ImageServer", {opacity:0.5}).addTo(before); // replace '.Example_Pink' with your map ID from mapbox
 		L.esri.basemapLayer("Topographic").addTo(after); // replace '.Example_Green' with your map ID from mapbox
 		
 		// Call the Before-After plugin, passing through the variables that you used to setup the maps, and (optional) any options you'd like
