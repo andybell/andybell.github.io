@@ -73,21 +73,22 @@ var mapConfig = {
     "datalayers": [
         {
             "type": "mapserver",
-            "label": "Historical_Delta_DEM",
-            "url": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM_v6r3/MapServer/0",
-            "legendUrl": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM_v6r3/MapServer/0?f=pjson",
-            "showLegendOnLoad": false,
-            "visible": true,
-            "opacity": 0.6,
-            "isTiled": false,
-            "hasTileOption": false,
-            "legendIsGradient": true
-        },
-        {
-            "type": "mapserver",
             "label": "Modern_DEM",
-            "url": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM_v6r3/MapServer",
-            "legendUrl": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM_v6r3/MapServer/1?f=pjson",
+            "url": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/Modern_Delta/MapServer",
+            "legendUrl": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/Modern_Delta/MapServer/legend?f=pjson",
+            "showLegendOnLoad": false,
+            "visible": false,
+            "opacity": 0.6,
+            "isTiled": false,
+            "hasTileOption": false,
+            "legendIsGradient": true
+        },
+		
+		{
+            "type": "mapserver",
+            "label": "Historical_Delta_DEM",
+            "url": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/HistoricalDelta_v6r3/MapServer",
+            "legendUrl": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/HistoricalDelta_v6r3/MapServer/legend?f=pjson",
             "showLegendOnLoad": false,
             "visible": true,
             "opacity": 0.6,
@@ -95,6 +96,7 @@ var mapConfig = {
             "hasTileOption": false,
             "legendIsGradient": true
         },
+
         {
             "type": "featurecollection",
             "label": "Search Features",
