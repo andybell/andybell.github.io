@@ -28,11 +28,11 @@
 var mapConfig = {
     title: "Historical Delta",
     //anchor: "GadgetPanel",
-    zoom: 8,
+    zoom: 9,
     center: [
-        -121.01,
-        38.22
-    ],
+        -121.8,
+        38.2
+    ], 
     selectedBasemap: "d94dcdbe78e141c2b2d3a91d5ca8b9c9",
     basemaps: [
         
@@ -73,15 +73,15 @@ var mapConfig = {
     "datalayers": [
         {
             "type": "mapserver",
-            "label": "CAML2010",
-            "url": "http://atlas.cws.ucdavis.edu/ArcGIS/rest/services/Environment/CAML2010/MapServer",
-            "legendUrl": "http://atlas.cws.ucdavis.edu/ArcGIS/rest/services/Environment/CAML2010/MapServer/legend?f=json",
+            "label": "Historical_Delta",
+            "url": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM10_v1/MapServer",
+            "legendUrl": "http://atlas.cws.ucdavis.edu/arcgis/rest/services/HDEM10_v1/MapServer/legend?f=pjson",
             "showLegendOnLoad": false,
-            "visible": false,
+            "visible": true,
             "opacity": 0.6,
             "isTiled": false,
             "hasTileOption": false,
-            "legendIsGradient": false
+            "legendIsGradient": true
         },
         {
             "type": "mapserver",
