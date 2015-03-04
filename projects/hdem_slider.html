@@ -19,12 +19,44 @@
 </head>
 
 <body>
+
+<style>
+  #basemaps-wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    background: white;
+    padding: 10px;
+  }
+  #basemaps {
+    margin-bottom: 5px;
+  }
+</style>
+
+
 <!-- Create a map container div and divs for your two maps -->
 <div id="map-container">
 	<!-- Make sure to give the map divs height and width -->
 	<div id="before" style="height:90vh;width:99vw;"></div>
 	<div id="after" style="height:90vh;width:99vw;"></div>
 </div>
+
+
+<div id="basemaps-wrapper" class="leaflet-bar">
+  <select name="basemaps" id="basemaps">
+    <option value="Topographic">Topographic<options>
+    <option value="Streets">Streets</option>
+    <option value="NationalGeographic">National Geographic<options>
+    <option value="Oceans">Oceans<options>
+    <option value="Gray">Gray<options>
+    <option value="DarkGray">Dark Gray<options>
+    <option value="Imagery">Imagery<options>
+    <option value="ShadedRelief">Shaded Relief<options>
+  </select>
+</div>
+
+
 
 <script type="text/javascript">
 	$(function() {
@@ -37,13 +69,78 @@
 
 		// add your Mapbox tile layer
 		new L.esri.Layers.DynamicMapLayer("http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/HistoricalDelta_v6r3/MapServer", {opacity:0.8}).addTo(before); 
-		L.esri.basemapLayer("Topographic").addTo(before); 
+		// L.esri.basemapLayer("Topographic").addTo(before); 
 		new L.esri.Layers.DynamicMapLayer("http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/Modern_Delta/MapServer", {opacity:0.8}).addTo(after);
-		L.esri.basemapLayer("Topographic").addTo(after); 
+		// L.esri.basemapLayer("Topographic").addTo(after); 
 		
+		
+		
+		
+		// Base map selector for after map
+		
+		var layer1 = L.esri.basemapLayer('Topographic').addTo(after);
+		var layerLabels1;
+
+			function setBasemap1(basemap) {
+				if (layer1) {
+				after.removeLayer(layer1);
+				}
+			layer1 = L.esri.basemapLayer(basemap);
+			after.addLayer(layer1);
+				if (layerLabels1) {
+					after.removeLayer(layerLabels1);
+					}
+
+			if (basemap === 'ShadedRelief' || basemap === 'Oceans' || basemap === 'Gray' || basemap === 'DarkGray' || basemap === 'Imagery' || basemap === 'Terrain') {
+
+			  layerLabels1 = L.esri.basemapLayer(basemap + 'Labels');
+			  after.addLayer(layerLabels1);
+			}
+		  }
+
+
+		// Base map selector for before map
+		
+		var layer2 = L.esri.basemapLayer('Topographic').addTo(before);
+		var layerLabels2;
+
+			function setBasemap2(basemap) {
+				if (layer2) {
+				before.removeLayer(layer2);
+				}
+			layer2 = L.esri.basemapLayer(basemap);
+			before.addLayer(layer2);
+				if (layerLabels2) {
+					before.removeLayer(layerLabels2);
+					}
+
+			if (basemap === 'ShadedRelief' || basemap === 'Oceans' || basemap === 'Gray' || basemap === 'DarkGray' || basemap === 'Imagery' || basemap === 'Terrain') {
+
+			  layerLabels2 = L.esri.basemapLayer(basemap + 'Labels');
+			  before.addLayer(layerLabels2);
+			}
+		  }
+		  
+		  
+		  
+			var basemaps = document.getElementById('basemaps');
+
+			basemaps.addEventListener('change', function(){
+				setBasemap1(basemaps.value);
+			});			
+			
+			basemaps.addEventListener('change', function(){
+				setBasemap2(basemaps.value);
+			});
+				
+				
 		// Call the Before-After plugin, passing through the variables that you used to setup the maps, and (optional) any options you'd like
 		$('#map-container').beforeAfter(before,after);
-	});
+				
+			});
+	
+	
+  
 </script>
 
 </body>
