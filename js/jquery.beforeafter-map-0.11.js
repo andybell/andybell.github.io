@@ -27,7 +27,7 @@
 				showFullLinks : true,
 				beforeLinkText: 'Show only before',
 				afterLinkText: 'Show only after',
-				imagePath : './css/images/',
+				imagePath : '../css/images/',
 				cursor: 'pointer',
 				clickSpeed: 600,
 				linkDisplaySpeed: 200,
