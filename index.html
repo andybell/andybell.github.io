@@ -1,30 +1,180 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Andy Bell Github Page</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/projects">Projects</a></li>
-      		</ul>
-		</nav>
-			<hr color="#d5d5d5">
-			
-    		<p class="blocktext">
-        		<h1>Andy Bell</h1>
-				<IMG class="displayed" src="IMG_0603.JPG" alt="fish" style="width:533px;height:356px">
-				
-    		</p><!-- /.blurb -->
-		<footer>
-    		<ul>
-        		<li><a href="https://github.com/andybell">github.com/andybell</a></li>
-        		<li><a href="https://bitbucket.org/ambell">bitbucket.com/ambell</a></li>
-			</ul>
-		</footer>
-	</body>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Half Slider - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/half-slider.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Andy Bell</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Info</a>
+                    </li>
+                    <li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+							</ul>
+						</li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Half Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('pics/IMG_0603.JPG');"></div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('pics/IMG_2751.JPG');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 2</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('pics/IMG_2194.JPG');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Andy Bell</h1>
+                <p>Images by AMBELL</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+				<div class="row text-center">
+				<h2>Projects</h2>
+				<img src="pics/IMG_2194.jpg" class="img-circle" alt="" width="150" height="150" >
+				</div>
+				<p></p>
+                <p><h4>Lots of info about different projects by AMBELL</h4></p>
+            </div>
+        </div>
+
+
+        <hr>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<h2>About Me:</h2>
+				<div class="row text-center">
+				<img src="pics/andy_bell_headshot_2014.jpg" class="img-circle" alt="" width="150" height="150">
+				</div>
+				<p></p>
+				<p><h4>I work for the <a href="https://watershed.ucdavis.edu/"> Center for Watershed Sciences at UC Davis</a>.
+				I'm a GIS project specialist that works on a variety of projects related to water in California. Prior to starting at the Center for Watershed Sciences, I worked as a River Scientist at	<a href= "http://www.sierrastreamsinstitute.org/"> Sierra Streams Institute</a> in Nevada City, CA.
+				I attended Bowdoin College in Brunswick, Maine and graduated in 2011 with a BA in biology (honors)
+				and environmental studies.
+				</h4></p>
+			</div>
+		</div><!-- /.blurb -->
+
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright Andy Bell</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 10000 //changes the speed
+    })
+    </script>
+
+</body>
+
 </html>
