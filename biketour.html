@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bike route: ME2CA</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/leaflet.css" />
+	
+
+	<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+	
+	
+</head>
+<body>
+	<div id="map"></div>
+
+	
+	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+	<script src="js/leaflet.js"></script>
+	<script>
+
+		var map = L.map('map').setView([39.8282, -98.5], 4);
+
+		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
+
+		// omnivore will AJAX-request this file behind the scenes and parse it:
+		// note that there are considerations:
+		// - The file must either be on the same domain as the page that requests it,
+		//   or both the server it is requested from and the user's browser must
+		//   support CORS.
+
+		// Internally this uses the toGeoJSON library to decode the KML file
+		// into GeoJSON
+		var customLayer = L.geoJson(null, {
+			// http://leafletjs.com/reference.html#geojson-style
+			style: function(feature) {
+				return {
+					color: '#f00'
+					
+				};
+			}
+		});
+		
+
+		var runLayer = omnivore.kml('6FCHJ.kml', null, customLayer)
+			.on('ready', function(layer) {
+				// http://leafletjs.com/reference.html#map-fitbounds
+				map.fitBounds(runLayer.getBounds());
+				
+
+				// After the 'ready' event fires, the GeoJSON contents are accessible
+				// and you can iterate through layers to bind custom popups.
+				runLayer.eachLayer(function(layer) {
+
+					// See the `.bindPopup` documentation for full details. This
+					// dataset has a property called `name`: your dataset might not,
+					// so inspect it and customize to taste.
+					layer.bindPopup(layer.feature.properties.name);
+
+				});
+				
+
+
+			})
+			.addTo(map);
+		</script>
+
+	</script>
+</body>
+</html>
