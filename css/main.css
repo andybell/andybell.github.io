@@ -9,3 +9,20 @@ body {
 .page-header {
 	color: lightslategray;
 }
+
+.thumbcust {
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 20px;
+  line-height: 2;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
+}
+
+.navbar {
+		text-decoration-color: lightslategray;
+}
