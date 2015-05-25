@@ -31,21 +31,50 @@
 
 	<script>
 
-		var map = L.map('map').setView([39.8282, -98.5], 4);
 
-		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+		            $(document).ready(function () {
+                map = L.map('map').setView([39.8282, -98.5], 4);
+
+                var layer = new L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 			maxZoom: 18,
 			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			id: 'examples.map-i875mjb7'
-		}).addTo(map);
+		});
+                map.addLayer(layer);
 
-		  // load GeoJSON from an external file
-  $.getJSON("biketour.geojson",function(data){
-    // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data).addTo(map);
-  });
+                $.getJSON('biketour.geojson', function (data) {
+                    L.geoJson(data, {
+                        onEachFeature: function (feature, layer) {
+                            layer.bindPopup(feature.properties.description);
+                        },
+
+                        /*
+                         * When each feature is loaded from the GeoJSON this
+                         * function is called. Here we create a cicle marker
+                         * for the feature and style the circle marker.
+                         */
+                        pointToLayer: function (feature, latlng) {
+                            return L.circleMarker(latlng, {
+                                // Stroke properties
+                                color: '#064067',
+                                opacity: 0.75,
+                                weight: 2,
+
+                                // Fill properties
+                                fillColor: '#064067',
+                                fillOpacity: 0.75,
+
+                                radius: 3
+                            });
+                        }
+                    }).addTo(map);
+                });
+
+            });
+
+
 
 		</script>
 </body>

@@ -1,6 +1,14 @@
 body {
   position: relative;
+  margin: 0;
+  padding: 0;
 }
+
+body,
+html{
+    height: 100%;
+    width: 100%;
+   }
 
 .fa {
 	color: lightslategray;
@@ -25,4 +33,13 @@ body {
 
 .navbar {
 		text-decoration-color: lightslategray;
+}
+
+#map
+{
+    width: 100px;
+    height:400px;
+    min-height: 100%;
+    min-width: 100%;
+    display: block;
 }
