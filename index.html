@@ -194,7 +194,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
-			<div class="page-header" id="Contact">
+			<div class="page-header" id="biketrip">
 				<h1>Bike Trip</h1>
 			</div>
 
@@ -336,17 +336,15 @@ $(document).ready(function(){
 
 		var layer = new L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 			maxZoom: 18,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			id: 'examples.map-i875mjb7'
+			attribution: '<a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.ik7djhcc'
 		});
 		map.addLayer(layer);
 
 		$.getJSON('biketour.geojson', function (data) {
 			L.geoJson(data, {
 				onEachFeature: function (feature, layer) {
-					layer.bindPopup(feature.properties.description);
+					layer.bindPopup(feature.geometry.type);
 				},
 
 				/*
@@ -357,15 +355,15 @@ $(document).ready(function(){
 				pointToLayer: function (feature, latlng) {
 					return L.circleMarker(latlng, {
 						// Stroke properties
-						color: '#064067',
+						color: '#042941',
 						opacity: 0.75,
 						weight: 2,
 
 						// Fill properties
-						fillColor: '#064067',
+						fillColor: '#042941',
 						fillOpacity: 0.75,
 
-						radius: 3
+						radius: 2
 					});
 				}
 			}).addTo(map);
