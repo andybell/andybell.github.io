@@ -1,30 +1,380 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Andy Bell Github Page</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/projects">Projects</a></li>
-      		</ul>
-		</nav>
-			<hr color="#d5d5d5">
-			
-    		<p class="blocktext">
-        		<h1>Andy Bell</h1>
-				<IMG class="displayed" src="IMG_0603.JPG" alt="fish" style="width:533px;height:356px">
-				
-    		</p><!-- /.blurb -->
-		<footer>
-    		<ul>
-        		<li><a href="https://github.com/andybell">github.com/andybell</a></li>
-        		<li><a href="https://bitbucket.org/ambell">bitbucket.com/ambell</a></li>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Website" content="">
+	<meta name="Andy Bell" content="">
+
+	<title>Andy M. Bell</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+	<!-- Custom Fonts -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<!--lightbox -->
+	<link href="css/lightbox.css" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<!-- jQuery Version 1.11.0 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	<!-- load geojson file -->
+    <script src="biketour.geojson" type="text/javascript"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="css/main.css"
+
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://www.andymbell.com">Andy Bell</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+
+				<li><a href="#" class="scroll-link" data-id="Projects">Projects</a>
+				</li>
+				<li><a href="cv.html" data-id="Projects">CV</a>
+				</li>
+				<li><a href="#" class="scroll-link" data-id="biketrip">Bike Tour</a>
+				</li>
+				<li><a href="/photos/index.html">Photos</a>
+				</li>
+				<li><a href="#" class="scroll-link" data-id="Contact">Contact</a>
+				</li>
+
 			</ul>
-		</footer>
-	</body>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<div class="container" style="padding-top: 75px;">
+</div>
+
+
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+			<div class="page-header" id="About">
+				<h1>Andy Bell</h1>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="center-block text-justify">
+						<img class="thumbnail center-block" src="img/IMG_6172.jpg" alt="" width="150" height="150" id="me">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+					<div class="text-justify" style="padding-top: 25px;">
+						I work for the <a href="https://watershed.ucdavis.edu/"> Center for Watershed Sciences at UC Davis</a>. I'm a GIS project specialist that works on a variety of projects related to water in California. Prior to starting at the Center for Watershed Sciences, I worked as a river scientist at
+						<a href="http://www.sierrastreamsinstitute.org/"> Sierra Streams Institute</a> in Nevada City, CA. I attended Bowdoin College in Brunswick, Maine and graduated in 2011 with a BA in biology with honors and environmental studies.
+
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Page Content -->
+			<div class="row text-center center-block">
+				<div class="col-xs-12">
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<img class="center-block thumbnail" src="img/IMG_0238.JPG" alt="..." alt="" width="200" height="150" id="me">
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<img class="thumbnail center-block" src="img/IMG_8967.JPG" alt="..." width="200" height="150" id="me">
+					</div>
+
+					<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0">
+						<img class="thumbnail center-block" src="img/Wildcat.JPG" alt="..." width="200" height="150" id="me">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	
+
+
+	
+<div class="container" >
+	<div class="row">
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+			<div class="page-header" id="Projects">
+				<h1>Projects</h1>
+			</div>
+
+			<ul class="nav nav-tabs" id="myTab">
+				<li role="presentation" class="active"><a data-toggle="tab" href="#hab">Honors Project</a>
+				</li>
+				<li role="presentation"><a data-toggle="tab" href="#hdem">Historical Delta</a>
+				</li>
+				<li role="presentation"><a data-toggle="tab" href="#pisces">PISCES</a>
+				</li>
+				<li role="presentation"><a data-toggle="tab" href="#ibi">Deer Creek IBI</a>
+				</li>
+			</ul>
+			<div class="tab-content text-left" >
+				<div id="hab" class="tab-pane fade in active">
+					<div class="text-center"><img src="img/IMG_6126.JPG" alt="..." class="img-circle" alt="" width="150" height="150" style="max-height: 150px; padding:10px;" >
+					</div>
+					<p><strong>Bowdoin Biology Honors Project:</strong> researched the impact of non-uniform distribution of aquatic vegetation on the abundance and diversity of benthic macroinvertebrates, fish, and water fowl in the lower Kennebec River estuary and Merrymeeting Bay.</p>
+				</div>
+				<div id="hdem" class="tab-pane fade">
+					<div class="text-center"><img src="img/Full_TIN.jpg" alt="..." style="max-height: 150px; padding:10px;">
+					</div>
+					<p>Created a historical topographic-bathymetric digital elevation model for the Sacramento - San Joaquin river
+						delta to characterize the hydrodynamics of the delta under natural conditions. The "1850" elevation
+						model represents the form and function of the delta
+						prior to modifications of the geometry and hydrology.</p>
+
+					<p>For more information, see <a href="/hdem-slider">Historical/Modern Elevation Model Slider</a></p>
+				</div>
+				<div id="pisces" class="tab-pane fade">
+					<div class="text-center"><img src="img/pisces_crop.png" alt="..." style="max-height: 150px; padding:10px;">
+					</div>
+					<p>PISCES is software and data describing the best-known ranges for California's 133 native fish and
+						numerous non-native fish.</p>
+
+					<p>For more information, please visit <a href="http://pisces.ucdavis.edu/">pisces.ucdavis.edu</a>
+					</p>
+				</div>
+				<div id="ibi" class="tab-pane fade">
+					<div class="text-center"><img src="img/IMG_6654.JPG" alt="..." class="img-circle" alt="" width="150" height="150" style="max-height: 150px; padding:10px;" >
+					</div>
+					<p>Developed a family-level index of biotic integrity (IBI) to assess the response of benthic macroinvertebrate assemblages to anthropogenic disturbances using twelve years of continuous citizen-science monitoring. Trained volunteers to monitor water quality, assess stream physical habitat, and collect aquatic insects. </p>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+<div class="container" style="padding-top: 25px;">
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+			<div class="page-header" id="biketrip">
+				<h1>Bike Tour: Maine to California</h1>
+			</div>
+
+			<div id="map"></div>
+
+			
+						<div class="container" style="padding: 10px;">
+			</div>
+			<div class="btn-group" role="group">
+				<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#bikeinfo" aria-expanded="false" aria-controls="collapseExample">
+					More info
+				</button>
+			</div>
+
+
+
+			<div class="collapse" id="bikeinfo">
+				<div class="well">
+					<div class="center-block" id="bike">
+						<p>Brunswick, Maine to Diamond Bar, California
+							<br> 4843 miles
+							<br> Summer 2011
+							<br>
+							<a href="http://trackmytour.com/6FCHJ">Blog - TrackMyTour</a>
+							<br>
+
+
+
+						</p>
+						<div class="container">
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+			<div class="page-header" id="Contact">
+				<h1>Contact</h1>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-sm-1 col-sm-offset-4"><a href="http://www.github.com/andybell" target="_blank">
+					<i class="fa fa-github-square fa-3x"></i></a>
+				</div>
+				<div class="col-xs-6 col-sm-1 "><a href="https://bitbucket.org/ambell" target="_blank">
+					<i class="fa fa-bitbucket-square fa-3x"></i></a>
+				</div>
+				<div class="col-xs-6 col-sm-1"><a href="https://www.linkedin.com/in/andymbell" target="_blank">
+					<i class="fa fa-linkedin-square fa-3x"></i></a>
+				</div>
+				<div class="col-xs-6 col-sm-1">
+					<i class="fa fa-envelope-o fa-3x" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Small modal for contact info-->
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" style="padding: 10px;">
+		<h4>Contact info:</h4>
+		Andy Bell<br>
+		andy@andymbell.com <br>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container" style="padding-top: 75px;">
+</div>
+
+<!-- /.container -->
+
+
+
+
+
+<!-- Script to use smooth scroll -->
+	<script type = "text/javascript" >
+		$(document).ready(function () {
+			// navigation click actions
+			$('.scroll-link').on('click', function (event) {
+				event.preventDefault();
+				var sectionID = $(this).attr("data-id");
+				scrollToID('#' + sectionID, 750);
+			});
+			// scroll to top action
+			$('.scroll-top').on('click', function (event) {
+				event.preventDefault();
+				$('html, body').animate({
+					scrollTop: 0
+				}, 'slow');
+			});
+			// mobile nav toggle
+			$('#nav-toggle').on('click', function (event) {
+				event.preventDefault();
+				$('#main-nav').toggleClass("open");
+			});
+		});
+	// scroll function
+	function scrollToID(id, speed) {
+		var offSet = 50;
+		var targetOffset = $(id).offset().top - offSet;
+		var mainNav = $('#main-nav');
+		$('html,body').animate({
+			scrollTop: targetOffset
+		}, speed);
+		if (mainNav.hasClass("open")) {
+			mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+			mainNav.removeClass("open");
+		}
+	}
+	if (typeof console === "undefined") {
+		console = {
+			log: function () {}
+		};
+	}
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#myTab li:eq(1) a").tab('show');
+});
+
+</script>
+
+<script>
+	$(document).ready(function () {
+		map = L.map('map').setView([39.8282, -98.5], 4);
+
+		var layer = new L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: '<a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.ik7djhcc'
+		});
+		map.addLayer(layer);
+
+		$.getJSON('biketour.geojson', function (data) {
+			L.geoJson(data, {
+				onEachFeature: function (feature, layer) {
+					layer.bindPopup(feature.geometry.type);
+				},
+
+				/*
+				 * When each feature is loaded from the GeoJSON this
+				 * function is called. Here we create a cicle marker
+				 * for the feature and style the circle marker.
+				 */
+				pointToLayer: function (feature, latlng) {
+					return L.circleMarker(latlng, {
+						// Stroke properties
+						color: '#042941',
+						opacity: 0.75,
+						weight: 2,
+
+						// Fill properties
+						fillColor: '#042941',
+						fillOpacity: 0.75,
+
+						radius: 2
+					});
+				}
+			}).addTo(map);
+		});
+
+	});
+</script>
+
+
+
+
+
+
+</body>
+
 </html>
