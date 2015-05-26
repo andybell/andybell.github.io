@@ -17,6 +17,9 @@ html{
 .page-header {
 	color: lightslategray;
 }
+.section-header {
+	color: lightslategray;
+}
 
 .thumbcust {
   display: inline-block;
