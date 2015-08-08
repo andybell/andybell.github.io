@@ -17,8 +17,6 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
-
-
 	<style>
 		body {
 			margin: 0;
@@ -32,23 +30,14 @@
 			width: 100%;
 		}
 	</style>
-
-
 </head>
 
 <body>
 	<div id="map"></div>
 
-
 	<script>
 		$(document).ready(function () {
-			map = L.map('map').setView([39.8282, -97.0], 5);
-
-
-
-
-
-
+			map = L.map('map').setView([39.8282, -97.0], 4);
 
 			var layer = new L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 				maxZoom: 18,
@@ -60,15 +49,15 @@
 				L.geoJson(data, {
 					onEachFeature: function (feature, layer) {
 
-
-
 						//var popupContent = feature.properties.description;
 
 						if (feature.geometry.type === "Point" && feature.properties.description) {
 							var popupContent = feature.properties.description;
-							layer.bindPopup(popupContent);
-						}
+							layer.bindPopup(popupContent, {
+								autoPan: true
 
+							});
+						}
 					},
 
 					/*
@@ -100,12 +89,9 @@
 							// Fill properties
 							fillColor: '#064067',
 							fillOpacity: 0.75,
-
 							radius: 4
 						});
 					}
-
-
 				}).addTo(map);
 			});
 		});
@@ -113,8 +99,3 @@
 </body>
 
 </html>
-
-
-
-function onEachFeature(feature, layer) { var popupContent = "
-<p>I started out as a GeoJSON " + feature.geometry.type + ", but now I'm a Leaflet vector!</p>"; if (feature.properties && feature.properties.popupContent) { popupContent += feature.properties.popupContent; } layer.bindPopup(popupContent); } L.geoJson([bicycleRental, campus], { style: function (feature) { return feature.properties && feature.properties.style; }, onEachFeature: onEachFeature, pointToLayer: function (feature, latlng) { return L.circleMarker(latlng, { radius: 8, fillColor: "#ff7800", color: "#000", weight: 1, opacity: 1, fillOpacity: 0.8 }); } }).addTo(map);
