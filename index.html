@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,11 +28,6 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-	<!-- load geojson file -->
-	<script src="biketour.geojson" type="text/javascript"></script>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="css/main.css" <!-- flavicon -->
 	<link rel="shortcut icon" href="img/favicon.ico">
@@ -41,8 +35,6 @@
 </head>
 
 <body>
-
-
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -79,10 +71,6 @@
 	</nav>
 	<div class="container" style="padding-top: 75px;">
 	</div>
-
-
-
-
 
 	<div class="container">
 		<div class="row">
@@ -126,11 +114,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 
 	<div class="container">
 		<div class="row">
@@ -196,7 +179,7 @@
 
 
 				<div id="bikeframe" style="height: 400px">
-					<iframe src="biketour.html" style="height:100%;width:100%;border:0;"></iframe>
+					<iframe src="biketour.html" style="height:100%;width:100%;border:0;" allowFullscreen></iframe>
 				</div>
 
 
@@ -218,8 +201,6 @@
 								<br>
 								<a href="http://trackmytour.com/6FCHJ">Blog - TrackMyTour</a>
 								<br>
-
-
 
 							</p>
 							<div class="container">
@@ -274,16 +255,10 @@
 		</div>
 	</div>
 
-
-
 	<div class="container" style="padding-top: 75px;">
 	</div>
 
 	<!-- /.container -->
-
-
-
-
 
 	<!-- Script to use smooth scroll -->
 	<script type="text/javascript">
@@ -332,54 +307,6 @@
 			$("#myTab li:eq(1) a").tab('show');
 		});
 	</script>
-
-	<script>
-		$(document).ready(function () {
-			map = L.map('map').setView([39.8282, -98.5], 4);
-
-			var layer = new L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-				maxZoom: 18,
-				attribution: '<a href="http://mapbox.com">Mapbox</a>',
-				id: 'examples.ik7djhcc'
-			});
-			map.addLayer(layer);
-
-			$.getJSON('biketour.geojson', function (data) {
-				L.geoJson(data, {
-					onEachFeature: function (feature, layer) {
-						//layer.bindPopup(feature.geometry.type);
-						layer.bindPopup(feature.properties.Name);
-					},
-
-					/*
-					 * When each feature is loaded from the GeoJSON this
-					 * function is called. Here we create a cicle marker
-					 * for the feature and style the circle marker.
-					 */
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, {
-							// Stroke properties
-							color: '#042941',
-							opacity: 0.75,
-							weight: 2,
-
-							// Fill properties
-							fillColor: '#042941',
-							fillOpacity: 0.75,
-
-							radius: 2
-						});
-					}
-				}).addTo(map);
-			});
-
-		});
-	</script>
-
-
-
-
-
 
 </body>
 
