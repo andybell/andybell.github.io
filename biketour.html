@@ -50,10 +50,17 @@
 			});
 
 
+			/*
 			var layer = new L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 				maxZoom: 18,
 				id: 'examples.ik7djhcc'
 			});
+			*/
+			// https: also suppported.
+			var layer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+				attribution: ' '
+			});
+
 			map.addLayer(layer);
 
 			$.getJSON('biketour.geojson', function (data) {
