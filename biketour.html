@@ -59,12 +59,15 @@
 				id: 'examples.ik7djhcc'
 			});
 			*/
-			// https: also suppported.
-			var layer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-				attribution: ' '
+
+			var background = new L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW1iZWxsIiwiYSI6InNKZ2FCekkifQ.4RXFObD-Uh_NSNMC4TPFNg', {
+				maxZoom: 18,
+				attribution: '',
+				id: 'mapbox.streets'
 			});
 
-			map.addLayer(layer);
+			map.addLayer(background);
+
 
 			$.getJSON('biketour.geojson', function(data) {
 				L.geoJson(data, {
@@ -72,12 +75,20 @@
 
 						//var popupContent = feature.properties.description;
 
-						if (feature.geometry.type === "Point" && feature.properties.description) {
-							var popupContent = feature.properties.description;
-							layer.bindPopup(popupContent, {
-								autoPan: true
+						var popupContent = feature.properties.description;
+						var popup = L.popup({
+							minWidth: 200,
+							keepInView: true
+						}).setContent(popupContent);
 
-							});
+						if (feature.geometry.type === "Point" && feature.properties.description) {
+
+
+							layer.bindPopup(popup);
+
+
+							//layer.bindPopup(popupContent, {});
+							//layer.popup().setContent(popupContent).openOn(map);
 						}
 					},
 
@@ -117,6 +128,9 @@
 			});
 		});
 	</script>
+
+
+
 </body>
 
 </html>
