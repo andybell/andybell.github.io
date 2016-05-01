@@ -17,13 +17,14 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
-
-	<!-- fullscreen -->
-	<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/Leaflet.fullscreen.min.js'></script>
-	<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/leaflet.fullscreen.css' rel='stylesheet' />
-
 	<!-- leaflet sleep-->
 	<script src="js/Leaflet.Sleep.js"></script>
+
+
+	<!-- fullscreen -->
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
 
 	<style>
 		body {
@@ -49,7 +50,8 @@
 			var map = new L.Map('map', {
 				fullscreenControl: true,
 				center: [39.8282, -97.0],
-				zoom: 4
+				zoom: 4,
+				sleepNote: false
 			});
 
 
