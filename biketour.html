@@ -22,12 +22,15 @@
 	<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/Leaflet.fullscreen.min.js'></script>
 	<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/leaflet.fullscreen.css' rel='stylesheet' />
 
+	<!-- leaflet sleep-->
+	<script src="js/Leaflet.Sleep.js"></script>
+
 	<style>
 		body {
 			margin: 0;
 			padding: 0;
 		}
-		
+
 		#map {
 			position: absolute;
 			top: 0;
@@ -41,7 +44,7 @@
 	<div id="map"></div>
 
 	<script>
-		$(document).ready(function () {
+		$(document).ready(function() {
 
 			var map = new L.Map('map', {
 				fullscreenControl: true,
@@ -63,9 +66,9 @@
 
 			map.addLayer(layer);
 
-			$.getJSON('biketour.geojson', function (data) {
+			$.getJSON('biketour.geojson', function(data) {
 				L.geoJson(data, {
-					onEachFeature: function (feature, layer) {
+					onEachFeature: function(feature, layer) {
 
 						//var popupContent = feature.properties.description;
 
@@ -83,7 +86,7 @@
 					 * function is called. Here we create a cicle marker
 					 * for the feature and style the circle marker.
 					 */
-					pointToLayer: function (feature, latlng) {
+					pointToLayer: function(feature, latlng) {
 						return L.circleMarker(latlng, {
 							// Stroke properties
 							color: '#064067',
@@ -97,7 +100,7 @@
 						});
 					},
 
-					lineToLayer: function (feature, latlng) {
+					lineToLayer: function(feature, latlng) {
 						return L.circleMarker(latlng, {
 							// Stroke properties
 							color: '#064067',
