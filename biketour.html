@@ -17,17 +17,21 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
+	<!-- leaflet sleep-->
+	<script src="js/Leaflet.Sleep.js"></script>
+
 
 	<!-- fullscreen -->
-	<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/Leaflet.fullscreen.min.js'></script>
-	<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/leaflet.fullscreen.css' rel='stylesheet' />
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
 
 	<style>
 		body {
 			margin: 0;
 			padding: 0;
 		}
-		
+
 		#map {
 			position: absolute;
 			top: 0;
@@ -41,12 +45,13 @@
 	<div id="map"></div>
 
 	<script>
-		$(document).ready(function () {
+		$(document).ready(function() {
 
 			var map = new L.Map('map', {
 				fullscreenControl: true,
 				center: [39.8282, -97.0],
-				zoom: 4
+				zoom: 4,
+				sleepNote: false
 			});
 
 
@@ -56,25 +61,36 @@
 				id: 'examples.ik7djhcc'
 			});
 			*/
-			// https: also suppported.
-			var layer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-				attribution: ' '
+
+			var background = new L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW1iZWxsIiwiYSI6InNKZ2FCekkifQ.4RXFObD-Uh_NSNMC4TPFNg', {
+				maxZoom: 18,
+				attribution: '',
+				id: 'mapbox.streets'
 			});
 
-			map.addLayer(layer);
+			map.addLayer(background);
 
-			$.getJSON('biketour.geojson', function (data) {
+
+			$.getJSON('biketour.geojson', function(data) {
 				L.geoJson(data, {
-					onEachFeature: function (feature, layer) {
+					onEachFeature: function(feature, layer) {
 
 						//var popupContent = feature.properties.description;
 
-						if (feature.geometry.type === "Point" && feature.properties.description) {
-							var popupContent = feature.properties.description;
-							layer.bindPopup(popupContent, {
-								autoPan: true
+						var popupContent = feature.properties.description;
+						var popup = L.popup({
+							minWidth: 200,
+							keepInView: true
+						}).setContent(popupContent);
 
-							});
+						if (feature.geometry.type === "Point" && feature.properties.description) {
+
+
+							layer.bindPopup(popup);
+
+
+							//layer.bindPopup(popupContent, {});
+							//layer.popup().setContent(popupContent).openOn(map);
 						}
 					},
 
@@ -83,7 +99,7 @@
 					 * function is called. Here we create a cicle marker
 					 * for the feature and style the circle marker.
 					 */
-					pointToLayer: function (feature, latlng) {
+					pointToLayer: function(feature, latlng) {
 						return L.circleMarker(latlng, {
 							// Stroke properties
 							color: '#064067',
@@ -97,7 +113,7 @@
 						});
 					},
 
-					lineToLayer: function (feature, latlng) {
+					lineToLayer: function(feature, latlng) {
 						return L.circleMarker(latlng, {
 							// Stroke properties
 							color: '#064067',
@@ -114,6 +130,9 @@
 			});
 		});
 	</script>
+
+
+
 </body>
 
 </html>
