@@ -46,3 +46,8 @@ html{
     min-width: 100%;
     display: block;
 }
+
+.paper {
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}
