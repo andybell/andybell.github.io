@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/andybell
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://andymbell.com
+  * I am andybell (https://keybase.io/andybell) on keybase.
+  * I have a public key with fingerprint 0A0B 34A8 1594 3CE5 B786  0A6F E6E6 9A9E 21F4 FD66
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010173a9805e9b72f466d7066ba2de83b9ad764bef4bc2c504c37a7609e9c43f4da90a",
+            "fingerprint": "0a0b34a815943ce5b7860a6fe6e69a9e21f4fd66",
+            "host": "keybase.io",
+            "key_id": "e6e69a9e21f4fd66",
+            "kid": "010173a9805e9b72f466d7066ba2de83b9ad764bef4bc2c504c37a7609e9c43f4da90a",
+            "uid": "dfc40d2321e57f7329cf1cf9789e9119",
+            "username": "andybell"
+        },
+        "service": {
+            "hostname": "andymbell.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1492201814,
+    "expire_in": 157680000,
+    "prev": "598b2e5a585fe6956121f8905912d6a38d5ce11b91c3dbe588883e65196ea09c",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.68
+Comment: https://keybase.io/crypto
+
+yMIkAnicrZJbSBVBGMfPKa0UKgmrh6yH7UodbGd3Z3bn1ENRVFDUIcKk0uPM7Kwu
+HndPe9Ybdg96iHqK7hShFZUJ2YXSEFSCrlYaQReMMKJ6kNIuKJQ1KwU99Nj3Msw3
+v/9/vu/juzV2ZCgzfCD+tnNbAX0Qvt92uDyU3wfyaiTqmtVStEYq5cMHT5g85cdL
+bVOKSjKQga4SbMiQY6orloaQqcsIUaKY3FApJqaONMotjTKFQVljqk50JGOOmaZa
+mkmwTKSIZNlOMfeSnu34gS2RqaoRA0CsqYxDqhtIJsjiiCNMMFeApVkmQkJY4qYC
+hSiOkhTPtV2RE5f4cHn/4P9z3eXDdqbFNNlUVAVwqFu6qmBmAWZh3RA8ADgAU9xz
+SBkXNHHMasoTCWlrRBLZCpvxYLBBJ38RZQGSy9wyIU56ru8yNyGeSnw/GQ2UfnUy
+QCs5jf82iVPbMcUchaCCeynbdaQoECTz7cAVaFhRZGAALSLxqqTt8bgdEFBHhiwi
++IZXCEuIDapwSKABxcQxREDMz8AyxEAxEVENEzIOAMWAqSbl0BChcgQBRpzImElB
+W5sdV4qqokxSLCxTdrFD/HKPS1vbWzelhcKZoVHpI4L9CmVmZP3ZusMHRg+pK8et
+3fN0f+O1vIM/No7Zfqen8fOn3vwdfSxae31m1j3YWxRNb+yBD5z1k9szVufuON4M
+b64Yf/KGd2rZxNVnM4/ObVkzupah3LuD867cjkVO4nUNT47mqErJ9tdnNr0n535W
+7rtScz16b8uXWd1e1rONcwprx3TfPcRPh9ExPmXD1Rb4YhJY8vRVUza9NGNgfmcb
+2LZvVWnDu8jCUN2jpQMjBr6e/XjxpV3fUX8i218OvtfFitZM7XqzrurD8xv93YuO
+jOuffix7S2JaF55d2YiaFycK8k/U7k3ThiqXnW9ecXm3GzsY2xXKae9oLavpeLYz
+3FT+cLESm1C4IO3CYPq3x3W/ABwLQoA=
+=178x
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/andybell
+
+==================================================================
